@@ -36,7 +36,8 @@ class SimpleEvaluator(parsimonious.NodeVisitor):
         self._ctx = ctx
         self._strict = strict
 
-    def visit_name(self, node, chidren):
+    def visit_name(self, node, children):
+        print(node.text)
         if node.text in self._ctx :
             val=self._ctx[node.text]
             if isinstance(val, (six.string_types)+ (six.binary_type,)) :
@@ -103,6 +104,6 @@ context = {"name": "test.pdf",
             }
 
 parser=SimpleEvaluator(context)
-result= parser.parse('name ~=".pdf" & ( from ~= "johns" | from ~= "tim" )')
+result= parser.parse('name ~=  ".pdf" & ( from ~= "johns" | from ~= "tim" )')
 
 print(result)
