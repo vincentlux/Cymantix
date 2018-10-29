@@ -15,6 +15,8 @@
     * ?LAST all/month/1 month
     * compatibility of "name" and "topic"
     * Scope level grammar
+* Convert email to Json
+* Web-based retrieval system
 
 ### Design notes
 * Explicitly design keywords(nonchange) and literal("varchar")
