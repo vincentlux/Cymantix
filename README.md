@@ -7,8 +7,16 @@ Done:
 * Successfully distinguished from ?TOTAL and ?"name" (1025)
 
 Todo:
-* Write SimpleEvaluator(parsimonious.NodeVisitor) to test
+* Write SimpleEvaluator(parsimonious.NodeVisitor) to test (1026, 1029)
 
 Design notes
-* Maybe explicitly design keywords(nonchange) and literal("varchar")
+* Explicitly design keywords(nonchange) and literal("varchar")
+* Desired result
+    * Save all emails in MongoDB
+    * Input: 
+        1. Json file, each one represents an email (key-value)
+        2. Cymantix Command
+    * Output: 
+        1. parsed Cymantix command
+        2. Use parsed Cymantix command to retrieve corresponding emails
 
