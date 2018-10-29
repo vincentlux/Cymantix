@@ -12,9 +12,9 @@
 
 ### Todo:
 * Write more grammar
-    1. ?LAST all/month/1 month
-    2. compatibility of "name" and "topic"
-    3. Scope level grammar
+    * ?LAST all/month/1 month
+    * compatibility of "name" and "topic"
+    * Scope level grammar
 
 ### Design notes
 * Explicitly design keywords(nonchange) and literal("varchar")
