@@ -13,15 +13,22 @@ op_how: HOW level
 
 # might consider change keyword part from / to ?xxx
 # note: only when "xxx" after ON keywords could it represent the topic
+    # sc_EMAIL_from   = "EMAIL"? "from"? '" chars "'"
+
 grammar = Grammar(
     """
-    op_how          = op_trig space op_first space
+    all             = space op space sc
+    sc              = sc_EMAIL_from / space
+    sc_EMAIL_from   = "EMAIL from" space op_lit_name
+    op              = op_trig space op_first space
     op_first        = op_TOTAL / op_LAST / op_lit_ON / op_lit_name
     op_lit_ON       = op_ON space op_lit_topic
     op_lit_topic    = "'" chars "'"
-    op_lit_name     = ("'" chars "'")+
+    op_lit_name     = ("'" chars "'" space)+
     op_ON           = "ON"
-    op_LAST         = "LAST"
+    op_LAST         = "LAST" space (op_LAST_time / op_LAST_piece)
+    op_LAST_piece   = ~"[0-9]*" 
+    op_LAST_time    = ~"[0-9]*" space ~"[a-z]+"
     op_TOTAL        = "TOTAL"
     op_trig         = "?"
     space           = " "*
@@ -58,6 +65,12 @@ class EntryParser(parsimonious.NodeVisitor):
     
     def visit_op_LAST(self, node, vc):
         self.entry['LAST'] = True
+
+    def visit_op_LAST_time(self, node, vc):
+        self.entry['LAST_time'] = node.text
+
+    def visit_op_LAST_piece(self, node, vc):
+        self.entry['LAST_piece'] = node.text
     
     def generic_visit(self, node, visited_children):
         pass
@@ -67,10 +80,14 @@ class EntryParser(parsimonious.NodeVisitor):
 example command:
 ?ON 'haha' 
 ?'mike' 
+?'Mike' 'Drake' 'Jim' EMAIL
 ?LAST
+?LAST 1 month EMAIL
+?LAST 1 EMAIL
+?LAST EMAIL from 'Drake' 'Jim'
 ?TOTAL
 """
 if __name__ == "__main__":
-    command = '''?TOTAL'''
+    command =  """ ?ON 'soccer'"""
     print(EntryParser(grammar,command).entry)
-    # print(grammar.parse(command))
+    print(grammar.parse(command))
