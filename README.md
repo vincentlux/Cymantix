@@ -1,7 +1,7 @@
 # Cymantix
 ## Pilot study on email retrieval system
 1. A query language based on MDL which can be used to for email retrieval
-2. A web-based service which has a database of emails and can be queried for email retrieval
+2. A web-based email retrieval service using self-built language
 
 ### Done:
 * Literature review and base language selection
