@@ -2,26 +2,23 @@ from parsimonious.grammar import Grammar
 import parsimonious
 import six
 
-"""
-op_how: HOW level
-    include: 
-        keywords: TOTAL, LAST, ON
-        literal: "name_here"
-    
-"""
-
-
-# might consider change keyword part from / to ?xxx
-# note: only when "xxx" after ON keywords could it represent the topic
 grammar = Grammar(
     """
-    op_how          = op_trig space op_first space
-    op_first        = op_TOTAL / op_LAST / op_lit_ON / op_lit_name
-    op_lit_ON       = op_ON space op_lit_topic
+    all             = space op space sc
+    sc              = sc_EMAIL_from / sc_EMAIL_attach / sc_EMAIL_piece / space
+    sc_EMAIL_piece  = "EMAIL last" space op_LAST_piece
+    sc_EMAIL_from   = "EMAIL from" space op_lit_name
+    sc_EMAIL_attach = "EMAIL" space sc_attach
+    sc_attach       = "MSWORD" / "PDF" / "GIF"
+    op              = op_trig space op_first space
+    op_first        = op_TOTAL / op_LAST / op_lit_ON / op_lit_name 
+    op_lit_ON       = op_lit_name* op_ON space op_lit_topic space sc_attach* space op_LAST*
     op_lit_topic    = "'" chars "'"
-    op_lit_name     = ("'" chars "'")+
+    op_lit_name     = ("'" chars "'" space)+
     op_ON           = "ON"
-    op_LAST         = "LAST"
+    op_LAST         = "LAST" space (op_LAST_time / op_LAST_piece)
+    op_LAST_piece   = ~"[0-9]*" 
+    op_LAST_time    = ~"[0-9]*" space ~"[a-z]+"
     op_TOTAL        = "TOTAL"
     op_trig         = "?"
     space           = " "*
@@ -55,10 +52,19 @@ class EntryParser(parsimonious.NodeVisitor):
 
     def visit_op_TOTAL(self, node, vc):
         self.entry['TOTAL'] = True
+
+    def visit_op_LAST_time(self, node, vc):
+        self.entry['time'] = node.text
+
+    def visit_op_LAST_piece(self, node, vc):
+        if (node.text) == '':
+            self.entry['piece'] = '1'
+        else:
+            self.entry['piece'] = node.text
     
-    def visit_op_LAST(self, node, vc):
-        self.entry['LAST'] = True
-    
+    def visit_sc_attach(self, node, vc):
+        self.entry['attachment'] = node.text
+
     def generic_visit(self, node, visited_children):
         pass
 
@@ -66,11 +72,20 @@ class EntryParser(parsimonious.NodeVisitor):
 """
 example command:
 ?ON 'haha' 
+?'Mike' ON 'Soccer' MSWORD LAST
 ?'mike' 
+?'Mike' EMAIL last 1
+?'Mike' 'Drake' 'Jim' EMAIL
 ?LAST
+?LAST 1 EMAIL
+?LAST 1 month EMAIL
+?LAST 1 month EMAIL from 'Drake'
+?LAST EMAIL from 'Drake' 'Jim'
+?LAST 1 EMAIL from 'Drake'
 ?TOTAL
 """
+
 if __name__ == "__main__":
-    command = '''?TOTAL'''
+    command =  """ ?'Mike' ON 'Soccer' MSWORD LAST """
     print(EntryParser(grammar,command).entry)
-    # print(grammar.parse(command))
+    print(grammar.parse(command))
