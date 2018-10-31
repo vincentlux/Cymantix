@@ -1,12 +1,12 @@
 # Cymantix
 ## Pilot study on email retrieval system
-1. A query language based on MDL which can be used to for email retrieval
-2. A web-based email retrieval service using self-built language
+* A query language based on MDL which can be used to for email retrieval
+* A web-based email retrieval service using self-built language
 
 ## Run
-1. `git clone https://github.com/vincentlux/Cymantix.git`
-2. `pip install -r requirements.txt`
-3.  Modify command
+* `git clone https://github.com/vincentlux/Cymantix.git`
+* `pip install -r requirements.txt`
+*  Modify command
 
 
 ### Done:
