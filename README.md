@@ -33,13 +33,13 @@
 * Desired result
     * Save all emails in MongoDB
     * Input: 
-        1. Json file, each one represents an email (key-value)
-        2. Cymantix Command
+        * Json file, each one represents an email (key-value)
+        * Cymantix Command
 
             `?”Mike” ON “picnic” MSWORD LAST`
     * Output: 
-        1. Parsed Cymantix command
+        * Parsed Cymantix command
 
             `{'from': "'Mike' ", 'topic': "'Soccer'", 'attachment': 'MSWORD', 'piece': '1'}`
-        2. Use parsed Cymantix command to retrieve corresponding emails
+        * Use parsed Cymantix command to retrieve corresponding emails
 
