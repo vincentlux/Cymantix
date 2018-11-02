@@ -9,6 +9,7 @@
 *  Modify command
 
 
+##Part1: Grammar
 ### Done:
 * Literature review and base language selection
 * Finish ?TOTAL, "name" (1025)
@@ -26,7 +27,7 @@
     * Add double quote compatibility
     * Date issue
     * Instance vs Class issue
-* Convert email to Json
+* Convert email to Json 
 * Web-based retrieval system
 
 ### Design notes
@@ -43,3 +44,10 @@
             `{'from': "'Mike' ", 'topic': "'Soccer'", 'attachment': 'MSWORD', 'piece': '1'}`
         * Use parsed Cymantix command to retrieve corresponding emails
 
+
+
+## Part2: Web app
+* Potential technologies: 
+    * Frontend:vue.js 
+    * Backend: node.js; MongoDB; ElasticSearch(or Solr)
+    * Server: Nginx
