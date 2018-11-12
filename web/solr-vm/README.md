@@ -33,4 +33,4 @@
 ## Index creation
 
 ### Desired output:
-exmaple.xml
+* exmaple.xml
