@@ -2,3 +2,4 @@
 *.gz
 /maildir
 /example
+node_modules/
