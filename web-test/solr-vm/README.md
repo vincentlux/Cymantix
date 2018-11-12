@@ -27,5 +27,5 @@
     ```
 * Use web interface
     ```
-    http://104.248.61.45:8983/solr
+    http://yourip:8983/solr
     ```
