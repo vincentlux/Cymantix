@@ -1,6 +1,6 @@
 # Solr on Ubuntu-18.04.1
 
-## Setup (https://www.howtoforge.com/tutorial/how-to-install-and-configure-solr-on-ubuntu-1604/)
+## [Setup](https://www.howtoforge.com/tutorial/how-to-install-and-configure-solr-on-ubuntu-1604/)
 * Log into Ubuntu-18.04.1 vm
 * Install JVM
     ```
