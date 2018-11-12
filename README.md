@@ -9,7 +9,7 @@
 *  Modify command
 
 
-##Part1: Grammar
+## Part1: Grammar
 ### Done:
 * Literature review and base language selection
 * Finish ?TOTAL, "name" (1025)
@@ -47,7 +47,15 @@
 
 
 ## Part2: Web app
-* Potential technologies: 
-    * Frontend:vue.js 
-    * Backend: node.js; MongoDB; ElasticSearch(or Solr)
+* Technologies: 
+    * Frontend:react.js 
+    * Backend: node.js; MongoDB; Solr
     * Server: Nginx
+
+### Done:
+* node.js workflow (1105-1111)
+* solr installation on vm
+* 
+
+### Todo:
+* indexing enron
