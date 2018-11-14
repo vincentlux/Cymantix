@@ -54,8 +54,8 @@
 
 ### Done:
 * node.js workflow (1105-1111)
-* solr installation on vm
+* solr installation on vm (1112)
 * 
 
 ### Todo:
-* indexing enron
+* indexing enron (1114)
