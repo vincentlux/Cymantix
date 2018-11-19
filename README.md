@@ -47,15 +47,13 @@
 
 
 ## Part2: Web app
-* Technologies: 
-    * Frontend:react.js 
-    * Backend: node.js; MongoDB; Solr
-    * Server: Nginx
+* Technologies:  
+    * react.js; node.js; Solr
 
 ### Done:
-* node.js workflow (1105-1111)
-* solr installation on vm (1112)
-* 
+* Node.js workflow (1105-1111)
+* Solr installation on vm (1112)
+* Finish converting all emails to xml (1114, 1118)
 
 ### Todo:
-* indexing enron (1114)
+* Modify managed-schema
