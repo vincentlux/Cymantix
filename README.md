@@ -1,7 +1,7 @@
 # Cymantix
 ## Pilot study on email retrieval system
-* A query language based on MDL which can be used to for email retrieval
-* A web-based email retrieval service using self-built language
+* [A query language based on MDL which can be used to for email retrieval](cymantix_grammar.py)
+* [A web-based email retrieval service using self-built language](/solr-vm)
 
 ## Run
 * `git clone https://github.com/vincentlux/Cymantix.git`
@@ -53,7 +53,7 @@
 ### Done:
 * Node.js workflow (1105-1111)
 * Solr installation on vm (1112)
-* Finish converting all emails to xml (1114, 1118)
+* Finish converting all emails to xml (1114-1118)
 
 ### Todo:
 * Modify managed-schema
