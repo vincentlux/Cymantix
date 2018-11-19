@@ -1,7 +1,8 @@
-# [Cymantix](http://cymantix.unc.edu/projects/mdl/)
+# Cymantix
 ## Pilot study on email retrieval system
 * [A query language based on MDL which can be used to for email retrieval](cymantix_grammar.py)
 * [A web-based email retrieval service using self-built language](/solr-vm)
+* [Project page](http://cymantix.unc.edu/projects/mdl/)
 
 ## Run
 * `git clone https://github.com/vincentlux/Cymantix.git`
