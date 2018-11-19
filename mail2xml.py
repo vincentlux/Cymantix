@@ -1,9 +1,9 @@
-# Aim to go into all dirs under maildir/ and convert all files into correspondind xml file and saved into mail_xml/
+# Aim to go into all dirs under maildir/ and convert all files into correspondind xml file and saved into xml_dir/
 import os
 import time
 import re
 
-# tags
+# Tags
 start           = '<add>\n<doc>\n'
 f_message_id    = '<field name="message_id">'
 f_date          = '<field name="date">'
@@ -24,7 +24,7 @@ def txt2xml(filepath):
         split_line = []
         content = False
         for line in lines:
-            if (not line.startswith("\n")) and not content: # not yet to the content
+            if (not line.startswith("\n")) and not content: # Not yet to the content
                 
                 if ":" in line:
                     split_line = line.strip().split(":", 1)
@@ -73,8 +73,6 @@ def main(rootdir="./maildir", targetdir="./xmldir"):
                 xml = txt2xml(os.path.join(subdir, file))
                 if not os.path.exists(targetdir):
                     os.makedirs(targetdir)
-                    # make name and save
-                    # next thing to do: save converted xml with name
                 else:
                     # make name and save
                     save_name = os.path.join(subdir.split("./maildir/", 1)[1], file).replace("/", "_") + "xml"
