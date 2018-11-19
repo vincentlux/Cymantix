@@ -14,6 +14,7 @@ f_from_name     = '<field name="from_name">'
 f_to_name       = '<field name="to_name">'
 f_content       = '<field name="content">'
 close           = '</field>\n'
+end             = '</doc>\n</add>'
 
 debug = []
 def txt2xml(filepath):
@@ -41,7 +42,7 @@ def txt2xml(filepath):
                     temp_dict["content"] = ""
                     temp_dict["content"] += line
         # Convert dictionary to xml
-        global start, f_message_id, f_date, f_from, f_to, f_subject, f_from_name, f_to_name, f_content, debug
+        global start, f_message_id, f_date, f_from, f_to, f_subject, f_from_name, f_to_name, f_content, close, end, debug
         xml = ""
         try:
             _message_id = f_message_id + temp_dict["Message-ID"] + close
@@ -64,7 +65,7 @@ def txt2xml(filepath):
                 temp_dict["X-To"] = ""
                 _to_name = f_to_name + temp_dict["X-To"] + close
             _content = f_content + temp_dict["content"] + close
-            xml = start + _message_id + _date + _from + _to + _subject + _from_name + _to_name + _content
+            xml = start + _message_id + _date + _from + _to + _subject + _from_name + _to_name + _content + end
         except Exception as e:
             debug.append((filepath, e))
         return xml
