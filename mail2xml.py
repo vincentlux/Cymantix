@@ -17,7 +17,7 @@ close           = '</field>\n'
 
 debug = []
 def txt2xml(filepath):
-    with open (filepath, "r") as f:
+    with open (filepath, errors="ignore", mode="r") as f:
         lines = f.readlines()
         temp_dict = {}
         
@@ -47,15 +47,22 @@ def txt2xml(filepath):
             _message_id = f_message_id + temp_dict["Message-ID"] + close
             _date = f_date + temp_dict["Date"] + close
             _from = f_from + temp_dict["From"] + close
-            try:
+            try: # Should try except all but only to and x-form have missing fields for this dataset
                 _to = f_to + temp_dict["To"] + close
             except KeyError:
                 temp_dict["To"] = ""
                 _to = f_to + temp_dict["To"] + close
-            
             _subject = f_subject + temp_dict["Subject"] + close
-            _from_name = f_from_name + temp_dict["X-From"] + close
-            _to_name = f_to_name + temp_dict["X-To"] + close
+            try:
+                _from_name = f_from_name + temp_dict["X-From"] + close
+            except KeyError:
+                temp_dict["X-From"] = ""
+                _from_name = f_from_name + temp_dict["X-From"] + close
+            try:
+                _to_name = f_to_name + temp_dict["X-To"] + close
+            except KeyError:
+                temp_dict["X-To"] = ""
+                _to_name = f_to_name + temp_dict["X-To"] + close
             _content = f_content + temp_dict["content"] + close
             xml = start + _message_id + _date + _from + _to + _subject + _from_name + _to_name + _content
         except Exception as e:
@@ -63,11 +70,11 @@ def txt2xml(filepath):
         return xml
             
             
-        
 def main(rootdir="./maildir", targetdir="./xmldir"):
     count = 0
     cwd = os.getcwd()
-    for subdir, dirs, files in os.walk(rootdir):        
+    for subdir, dirs, files in os.walk(rootdir):
+        print("Start processing ", subdir)
         for file in files:
             if file != ".DS_Store":
                 xml = txt2xml(os.path.join(subdir, file))
