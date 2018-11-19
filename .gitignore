@@ -1,5 +1,7 @@
 .vscode
 *.gz
 /maildir
+/xmldir
 /example
 node_modules/
+
