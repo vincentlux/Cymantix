@@ -11,6 +11,29 @@
 
 
 ## Part1: Grammar
+### EBNF (with regex):
+```
+    all             ::= space op space sc
+    sc              ::= sc_EMAIL_from | sc_EMAIL_attach | sc_EMAIL_piece | space
+    sc_EMAIL_piece  ::= "EMAIL last" space op_LAST_piece
+    sc_EMAIL_from   ::= "EMAIL from" space op_lit_name
+    sc_EMAIL_attach ::= "EMAIL" space sc_attach
+    sc_attach       ::= "MSWORD" | "PDF" | "GIF"
+    op              ::= op_trig space op_first space
+    op_first        ::= op_TOTAL | op_LAST | op_lit_ON | op_lit_name 
+    op_lit_ON       ::= op_lit_name* op_ON space op_lit_topic space sc_attach* space op_LAST*
+    op_lit_topic    ::= "'" chars "'"
+    op_lit_name     ::= ("'" chars "'" space)+
+    op_ON           ::= "ON"
+    op_LAST         ::= "LAST" space (op_LAST_time | op_LAST_piece)
+    op_LAST_piece   ::= ~"[0-9]*" 
+    op_LAST_time    ::= ~"[0-9]*" space ~"[a-z]+"
+    op_TOTAL        ::= "TOTAL"
+    op_trig         ::= "?"
+    space           ::= " "*
+    chars           ::= ~"[A-z0-9]*"
+```
+
 ### Done:
 * Literature review and base language selection
 * Finish ?TOTAL, "name" (1025)
