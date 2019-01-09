@@ -11,7 +11,7 @@
 
 
 ## Part1: Grammar
-### EBNF (with regex):
+### EBNF (with regexes):
 ```
     all             ::= space op space sc
     sc              ::= sc_EMAIL_from | sc_EMAIL_attach | sc_EMAIL_piece | space
