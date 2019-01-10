@@ -43,15 +43,11 @@
 * Finish main Cymantix grammar
 
 ### Todo:
-* ~~Write more grammar~~
-    * ~~?LAST all/month/1 month~~
-    * ~~compatibility of "name" and "topic"~~
-    * ~~Scope level grammar~~
 * Debug:
     * Add double quote compatibility
     * Date issue
     * Instance vs Class issue
-* Convert email to Json 
+* ~~Convert email to xml~~ 
 * Web-based retrieval system
 
 ### Design notes
@@ -80,4 +76,6 @@
 * Finish converting all emails to xml (1114-1118)
 
 ### Todo:
-* Modify managed-schema
+* Plan big picture (0111)
+* Research on Solr search grammar (0111)
+* Modify managed-schema (0111)
