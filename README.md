@@ -77,6 +77,7 @@
 
 ### Todo:
 * Modify managed-schema through [API](https://lucene.apache.org/solr/guide/7_5/schema-api.html#modify-the-schema) (0110,0111)
+* Modify Cymantix output grammar
 * Research on Solr search grammar (0110,0111)
 	** [simple solr search over multiple fields](https://stackoverflow.com/questions/8089947/solr-search-query-over-multiple-fields)
 	** [Json request api](https://lucene.apache.org/solr/guide/7_5/json-request-api.html#json-request-api)
