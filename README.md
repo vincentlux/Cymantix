@@ -78,4 +78,4 @@
 ### Todo:
 * Plan big picture (0111)
 * Research on Solr search grammar (0111)
-* Modify managed-schema [API](https://lucene.apache.org/solr/guide/7_5/schema-api.html#modify-the-schema) (0111)
+* Modify managed-schema through [API](https://lucene.apache.org/solr/guide/7_5/schema-api.html#modify-the-schema) (0111)
