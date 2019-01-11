@@ -70,23 +70,29 @@
 * Technologies:  
     * react.js; node.js; Solr
 
-### Done:
-* Node.js workflow (1105-1111)
-* Solr installation on vm (1112)
-* Finish converting all emails to xml (1114-1118)
-
 ### Todo:
-* Modify Cymantix output grammar
-    * [Field type](https://lucene.apache.org/solr/guide/6_6/field-types-included-with-solr.html)
+* Add personalized [schema](/solr-vm/change-schema.sh)
+    * __Issues:__ 
+        1. __Cannot [reload](http://104.248.61.45:8983/solr/admin/cores?action=RELOAD&core=test)__
+        2. __If have multiple cores, how does conf folder work?__
+* Modify Cymantix output grammar 
 * Research on Solr search grammar (0110,0111)
     * [Simple solr search over multiple fields](https://stackoverflow.com/questions/8089947/solr-search-query-over-multiple-fields)
     * [Json request API](https://lucene.apache.org/solr/guide/7_5/json-request-api.html#json-request-api)
 * [__date time conversion__](https://lucene.apache.org/solr/guide/6_6/working-with-dates.html#working-with-dates)
 * Escape special characters in mail2xml.py
 
+### Done:
+* Node.js workflow (1105-1111)
+* Solr installation on vm (1112)
+* Finish converting all emails to xml (1114-1118)
+* Escape xml field in mail2xml.py to avoid solr xml bug (0111)
+* change-schema.sh(0111)
+
+
 ### Useful links
-[Schema API](https://lucene.apache.org/solr/guide/7_5/schema-api.html#modify-the-schema) (0110,0111)
+[Schema API](https://lucene.apache.org/solr/guide/7_5/schema-api.html#modify-the-schema)
 
 [Difference between StrField and TextField](http://lucene.472066.n3.nabble.com/Difference-between-textfield-and-strfield-td3986916.html)
 
-
+[Working with dates](https://lucene.apache.org/solr/guide/7_5/working-with-dates.html#working-with-dates)

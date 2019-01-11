@@ -2,6 +2,7 @@
 import os
 import time
 import re
+from xml.sax.saxutils import escape
 
 # Tags
 start           = '<add>\n<doc>\n'
@@ -29,18 +30,18 @@ def txt2xml(filepath):
                 
                 if ":" in line:
                     split_line = line.strip().split(":", 1)
-                    split_line[1] = split_line[1].strip()
+                    split_line[1] = xmlescape(split_line[1].strip())
                 else:
-                    split_line[1] += re.sub(r"[\s+]", ' ', line)
+                    split_line[1] += xmlescape(re.sub(r"[\s+]", ' ', line))
                 temp_dict[split_line[0]] = split_line[1]
             else:
                 # Email content processing
                 content = True
                 try:
-                    temp_dict["content"] += line
+                    temp_dict["content"] += xmlescape(line)
                 except:
                     temp_dict["content"] = ""
-                    temp_dict["content"] += line
+                    temp_dict["content"] += xmlescape(line)
         # Convert dictionary to xml
         global start, f_message_id, f_date, f_from, f_to, f_subject, f_from_name, f_to_name, f_content, close, end, debug
         xml = ""
@@ -70,7 +71,13 @@ def txt2xml(filepath):
             debug.append((filepath, e))
         return xml
             
-            
+def xmlescape(data):
+    return escape(data, entities={
+        "'": "&apos;",
+        "\"": "&quot;"
+    })
+
+
 def main(rootdir="./maildir", targetdir="./xmldir"):
     count = 0
     cwd = os.getcwd()
