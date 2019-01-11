@@ -73,14 +73,13 @@
 ### Todo:
 * Add personalized [schema](/solr-vm/change-schema.sh)
     * __Issues:__ 
-        1. __Cannot [reload](http://104.248.61.45:8983/solr/admin/cores?action=RELOAD&core=test)__
+        1. __Cannot reload [bug](http://104.248.61.45:8983/solr/admin/cores?action=RELOAD&core=test)__
         2. __If have multiple cores, how does conf folder work?__
 * Modify Cymantix output grammar 
 * Research on Solr search grammar (0110,0111)
     * [Simple solr search over multiple fields](https://stackoverflow.com/questions/8089947/solr-search-query-over-multiple-fields)
     * [Json request API](https://lucene.apache.org/solr/guide/7_5/json-request-api.html#json-request-api)
 * [__date time conversion__](https://lucene.apache.org/solr/guide/6_6/working-with-dates.html#working-with-dates)
-* Escape special characters in mail2xml.py
 
 ### Done:
 * Node.js workflow (1105-1111)
