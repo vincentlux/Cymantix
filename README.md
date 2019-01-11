@@ -76,7 +76,6 @@
 * Finish converting all emails to xml (1114-1118)
 
 ### Todo:
-* Modify managed-schema through [API](https://lucene.apache.org/solr/guide/7_5/schema-api.html#modify-the-schema) (0110,0111)
 * Modify Cymantix output grammar
     * [Field type](https://lucene.apache.org/solr/guide/6_6/field-types-included-with-solr.html)
 * Research on Solr search grammar (0110,0111)
@@ -84,3 +83,10 @@
     * [Json request API](https://lucene.apache.org/solr/guide/7_5/json-request-api.html#json-request-api)
 * [__date time conversion__](https://lucene.apache.org/solr/guide/6_6/working-with-dates.html#working-with-dates)
 * Escape special characters in mail2xml.py
+
+### Useful links
+[Schema API](https://lucene.apache.org/solr/guide/7_5/schema-api.html#modify-the-schema) (0110,0111)
+
+[Difference between StrField and TextField](http://lucene.472066.n3.nabble.com/Difference-between-textfield-and-strfield-td3986916.html)
+
+
