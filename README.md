@@ -82,4 +82,5 @@
 * Research on Solr search grammar (0110,0111)
     * [Simple solr search over multiple fields](https://stackoverflow.com/questions/8089947/solr-search-query-over-multiple-fields)
     * [Json request API](https://lucene.apache.org/solr/guide/7_5/json-request-api.html#json-request-api)
-	
+* [__date time conversion__](https://lucene.apache.org/solr/guide/6_6/working-with-dates.html#working-with-dates)
+* Escape special characters in mail2xml.py
