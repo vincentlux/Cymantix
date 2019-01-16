@@ -71,8 +71,9 @@
     * react.js; node.js; Solr
 
 ### Todo:
+* run test_time.py (possible fix for bug on /home/vincent/Cymantix/maildir/lokey-t/calendar/33. (multiple date))
 * insufficient allocation memory => sample 10000 docs and do pilot study on digitalocean server (0116)
-* extract attachment information and [time conversion](https://lucene.apache.org/solr/guide/6_6/working-with-dates.html#working-with-dates) (in mail2xml.py) (0116-0117)
+* extract attachment information( or just change search query) (0116-0117)
 * Modify Cymantix output grammar (0117)
 * Research on Solr search grammar
     * [Simple solr search over multiple fields](https://stackoverflow.com/questions/8089947/solr-search-query-over-multiple-fields)
@@ -86,6 +87,7 @@
 * change-schema.sh(0111)
 * Add personalized [schema](/solr-vm/change-schema.sh)(0115)
 * escaped all files on the server(0115)
+* [time conversion](https://lucene.apache.org/solr/guide/7_5/working-with-dates.html#working-with-dates) (in mail2xml.py) (0116)
 
 
 ### Useful links

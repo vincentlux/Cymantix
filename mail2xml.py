@@ -26,16 +26,22 @@ def txt2xml(filepath):
         
         split_line = []
         content = False
+        date = False
         for line in lines:
             if (not line.startswith("\n")) and not content: # Not yet to the content
                 if ":" in line:
                     # if it is Date
-                    if line.startswith("Date:"):
-                        split_line = line.strip().split(":", 1)
-                        # remove time zone and format time
-                        split_line[1] = split_line[1][:-6].strip()
-                        split_line[1] = datetime.strptime(split_line[1], "%a, %d %b %Y %H:%M:%S %z").strftime('%Y-%m-%dT%H:%M:%SZ')
-                        split_line[1] = xmlescape(split_line[1].strip())
+                    if line.startswith("Date:") and not date:
+                        try:
+                            date = True
+                            split_line = line.strip().split(":", 1)
+                            # remove time zone and format time
+                            split_line[1] = split_line[1][:-6].strip()
+                            split_line[1] = datetime.strptime(split_line[1], "%a, %d %b %Y %H:%M:%S %z").strftime('%Y-%m-%dT%H:%M:%SZ')
+                            split_line[1] = xmlescape(split_line[1].strip())
+                        except:
+                            print(filepath)
+                            break
                     else:
                         split_line = line.strip().split(":", 1)
                         split_line[1] = xmlescape(split_line[1].strip())
@@ -102,9 +108,8 @@ def main(rootdir="./maildir", targetdir="./xmldir"):
                     save_name = os.path.join(targetdir, save_name)
                     with open(save_name, "w") as f:
                         f.write(xml)
-                        print("finished writing into "+ save_name)
 
-    print(debug)
+    print("Bugs:", debug)
     return
 
 main()
