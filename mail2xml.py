@@ -49,7 +49,7 @@ def txt2xml(filepath):
             _message_id = f_message_id + temp_dict["Message-ID"] + close
             _date = f_date + temp_dict["Date"] + close
             _from = f_from + temp_dict["From"] + close
-            try: # Should try except all but only to and x-form have missing fields for this dataset
+            try: 
                 _to = f_to + temp_dict["To"] + close
             except KeyError:
                 temp_dict["To"] = ""
@@ -80,7 +80,7 @@ def xmlescape(data):
 
 def main(rootdir="./maildir", targetdir="./xmldir"):
     count = 0
-    cwd = os.getcwd()
+    # cwd = os.getcwd()
     for subdir, dirs, files in os.walk(rootdir):
         print("Start processing ", subdir)
         for file in files:
