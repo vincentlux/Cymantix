@@ -2,6 +2,7 @@
 import os
 import time
 import re
+from datetime import datetime
 from xml.sax.saxutils import escape
 
 # Tags
@@ -27,10 +28,17 @@ def txt2xml(filepath):
         content = False
         for line in lines:
             if (not line.startswith("\n")) and not content: # Not yet to the content
-                
                 if ":" in line:
-                    split_line = line.strip().split(":", 1)
-                    split_line[1] = xmlescape(split_line[1].strip())
+                    # if it is Date
+                    if line.startswith("Date:"):
+                        split_line = line.strip().split(":", 1)
+                        # remove time zone and format time
+                        split_line[1] = split_line[1][:-6].strip()
+                        split_line[1] = datetime.strptime(split_line[1], "%a, %d %b %Y %H:%M:%S %z").strftime('%Y-%m-%dT%H:%M:%SZ')
+                        split_line[1] = xmlescape(split_line[1].strip())
+                    else:
+                        split_line = line.strip().split(":", 1)
+                        split_line[1] = xmlescape(split_line[1].strip())
                 else:
                     split_line[1] += xmlescape(re.sub(r"[\s+]", ' ', line))
                 temp_dict[split_line[0]] = split_line[1]
