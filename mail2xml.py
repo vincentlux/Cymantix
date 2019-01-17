@@ -43,8 +43,11 @@ def txt2xml(filepath):
                             print(filepath)
                             break
                     else:
-                        split_line = line.strip().split(":", 1)
-                        split_line[1] = xmlescape(split_line[1].strip())
+                        if line.startswith("Date:"): # add to the former attribute
+                            split_line[1] += xmlescape(line.strip())
+                        else:
+                            split_line = line.strip().split(":", 1)
+                            split_line[1] = xmlescape(split_line[1].strip())
                 else:
                     split_line[1] += xmlescape(re.sub(r"[\s+]", ' ', line))
                 temp_dict[split_line[0]] = split_line[1]
