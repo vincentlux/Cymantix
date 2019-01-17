@@ -102,9 +102,10 @@ example command:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--command', type=str, default='',
-            help='Cymantix command')
+            help='Cymantix command eg. ?LAST all EMAIL from "Mike" ')
     args = parser.parse_args()
     
-    # command =  """ ?LAST all EMAIL from 'Mike' """
-    print(EntryParser(grammar,args.command).entry)
+    # replace double quote to single quote
+    command = args.command.replace('"', "\'")
+    print(EntryParser(grammar,command).entry)
     # print(grammar.parse(command))
