@@ -7,8 +7,7 @@
 ## Run
 * `git clone https://github.com/vincentlux/Cymantix.git`
 * `pip install -r requirements.txt`
-*  Modify command
-
+*  python cymantix_grammar.py --command 'command here'
 
 ## Part1: Grammar
 ### EBNF (with regexes):
@@ -71,6 +70,7 @@
     * react.js; node.js; Solr
 
 ### Todo:
+* cymantix_solr function to convert cymantix grammar to solr grammar
 * extract attachment information( or just change search query) (0116-0117)
 * Modify Cymantix output grammar (0117)
 * Research on Solr search grammar
