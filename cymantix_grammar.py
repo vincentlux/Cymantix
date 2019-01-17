@@ -1,6 +1,7 @@
 from parsimonious.grammar import Grammar
 import parsimonious
 import six
+import argparse
 
 
 '''
@@ -99,6 +100,11 @@ example command:
 """
 
 if __name__ == "__main__":
-    command =  """ ?LAST all EMAIL from 'Mike' """
-    print(EntryParser(grammar,command).entry)
-    print(grammar.parse(command))
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--command', type=str, default='',
+            help='Cymantix command')
+    args = parser.parse_args()
+    
+    # command =  """ ?LAST all EMAIL from 'Mike' """
+    print(EntryParser(grammar,args.command).entry)
+    # print(grammar.parse(command))
