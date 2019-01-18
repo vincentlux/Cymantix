@@ -88,23 +88,23 @@ example command:
 ?'Mike' ON 'Soccer' MSWORD LAST
 ?'mike' 
 ?'Mike' EMAIL last 1
-?'Mike' 'Drake' 'Jim' EMAIL
+?'Mike' 'Drake' 'Jim'
 ?LAST
-?LAST 1 EMAIL
-?LAST 1 month EMAIL
+?LAST 1 
 ?LAST 1 month EMAIL from 'Drake'
 ?LAST EMAIL from 'Drake' 'Jim'
 ?LAST 1 EMAIL from 'Drake'
 ?TOTAL
 """
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--command', type=str, default='',
-            help='Cymantix command eg. ?LAST all EMAIL from "Mike" ')
-    args = parser.parse_args()
+def c_json(inp):
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument('--command', type=str, default='',
+    #         help='Cymantix command eg. ?LAST all EMAIL from "Mike" ')
+    # args = parser.parse_args()
     
     # replace double quote to single quote
-    command = args.command.replace('"', "\'")
-    print(EntryParser(grammar,command).entry)
+    command = inp.replace('"', "\'")
+    return EntryParser(grammar,command).entry
+    # print(EntryParser(grammar,command).entry)
     # print(grammar.parse(command))
