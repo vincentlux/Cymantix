@@ -3,7 +3,6 @@ import parsimonious
 import six
 import argparse
 
-
 '''
 TODO
     1. Add double quote compatibility
