@@ -70,6 +70,7 @@
     * react.js; node.js; Solr
 
 ### Todo:
+* Test search.py
 * cymantix_solr function to convert cymantix grammar to solr grammar
 * extract attachment information( or just change search query) (0116-0117)
 * Modify Cymantix output grammar (0117)
