@@ -70,14 +70,12 @@
     * react.js; node.js; Solr
 
 ### Todo:
+* __JSDL__
 * Test search.py
 * cymantix_solr function to convert cymantix grammar to solr grammar
-* extract attachment information( or just change search query) (0116-0117)
-* Modify Cymantix output grammar (0117)
-* Research on Solr search grammar
-    * [Common query parameters](https://lucene.apache.org/solr/guide/7_5/common-query-parameters.html)
-    * [Json request API](https://lucene.apache.org/solr/guide/7_5/json-request-api.html#json-request-api)
-    * [Simple solr search over multiple fields](https://stackoverflow.com/questions/8089947/solr-search-query-over-multiple-fields)
+* Extract attachment information( or just change search query) (0116-0117)
+
+
 
 
 ### Done:
@@ -90,6 +88,8 @@
 * escaped all files on the server(0115)
 * [time conversion](https://lucene.apache.org/solr/guide/7_5/working-with-dates.html#working-with-dates) (in mail2xml.py) (0116)
 * successfully query latest date
+* Modify Cymantix output grammar
+* Research on Solr search grammar
 
 ### Useful links
 [Schema API](https://lucene.apache.org/solr/guide/7_5/schema-api.html#modify-the-schema)
