@@ -1,1 +1,0 @@
-Directory to learn full-stack dev with react.js, node.js, and elastic search
