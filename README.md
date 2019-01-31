@@ -67,16 +67,13 @@
 
 ## Part2: Web app
 * Technologies:  
-    * react.js; node.js; Solr
+    * Vue.js; Python Flask; Solr
 
 ### Todo:
-* __JSDL__
-* Test search.py
-* cymantix_solr function to convert cymantix grammar to solr grammar
-* Extract attachment information( or just change search query) (0116-0117)
-
-
-
+* Add voice (0131-0201)
+* Move miksa3 Solr indexed item to own server(0131)
+* Optimize webpage for refs and hints
+* simple.unc.edu
 
 ### Done:
 * Node.js workflow (1105-1111)
@@ -90,6 +87,9 @@
 * successfully query latest date
 * Modify Cymantix output grammar
 * Research on Solr search grammar
+* Extract attachment information( or just change search query) (0116-0117)
+* cymantix_solr function to convert cymantix grammar to solr grammar
+* JCDL submitted
 
 ### Useful links
 [Schema API](https://lucene.apache.org/solr/guide/7_5/schema-api.html#modify-the-schema)
